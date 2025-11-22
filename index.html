@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Editing Saya</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        
+        
+        .header-title {
+            padding: 20px 0;
+        }
+        .header-title h1 {
+            font-weight: 800; 
+            font-size: 2.5em;
+            text-transform: uppercase;
+            color: #2c3e50;
+        }
+
+      
+        .description {
+            margin-bottom: 40px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+    
+        .video-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 30px 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+        .video-section h2 {
+             width: 100%;
+             margin-bottom: 20px;
+             color: #34495e;
+        }
+        .video-container {
+            width: 320px; 
+            height: 180px; 
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        
+        .footer-button {
+            margin: 40px 0;
+        }
+        .tos-button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            background-color: #e74c3c; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tos-button:hover {
+            background-color: #c0392b;
+        }
+        
+       
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6); 
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 10% auto; 
+            padding: 30px;
+            border-radius: 10px;
+            width: 70%; 
+            max-width: 600px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+       
+        .bottom-section {
+            margin-top: 50px;
+            padding-top: 15px;
+            border-top: 1px solid #bdc3c7;
+        }
+        .small-thin-text {
+            font-size: 0.9em;
+            font-weight: 300; 
+            color: #95a5a6;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-title">
+        <h1><b>MY EDITING PORTOFOLIO</b></h1>
+    </header>
+
+    <section class="description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+
+    <section class="video-section">
+        <h2>Karya Terbaru Saya</h2>
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/v57bf1HlBOw" title="YouTube video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ZWwvLOvsvBU" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/U5Z99OCSicA" title="YouTube video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/JoGijWb0osY" title="YouTube video 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/k_8aB3IbJ6Y" title="YouTube video 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="footer-button">
+        <button class="tos-button" onclick="document.getElementById('tosModal').style.display='block'">Term of Service</button>
+    </section>
+
+    <div id="tosModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="document.getElementById('tosModal').style.display='none'">&times;</span>
+        <h2>Ketentuan Layanan (Term of Service)</h2>
+        <p><strong>Persetujuan Penggunaan Konten:</strong></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p><strong>Hak Cipta:</strong></p>
+        <p>Nunc vel risus commodo, luctus risus id, eleifend tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus at ex in tortor volutpat auctor vel id purus. Sed eget tellus vel nisl convallis bibendum. Donec at purus eu odio finibus consectetur. Nulla facilisi. Proin id velit eu ipsum malesuada egestas.</p>
+      </div>
+    </div>
+
+    <footer class="bottom-section">
+        <p class="small-thin-text">enjoy my edit</p>
+    </footer>
+
+    <script>
+       
+        var modal = document.getElementById('tosModal');
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
