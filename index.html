@@ -3,190 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Editing Saya</title>
+    <title>Portofolio Editing Short - [Nama Kamu]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        
+        /* --- STYLE CSS --- */
+        :root {
+            --color-bg-dark: #121212;
+            --color-glass-bg: rgba(255, 255, 255, 0.08);
+            --color-accent: #8e2de2; /* Electric Purple */
+            --color-text: #f0f0f0;
+            --color-border: rgba(255, 255, 255, 0.15);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
             text-align: center;
-            color: #333;
-            background-color: #f4f4f4;
-        }
-        
-        
-        .header-title {
-            padding: 20px 0;
-        }
-        .header-title h1 {
-            font-weight: 800; 
-            font-size: 2.5em;
-            text-transform: uppercase;
-            color: #2c3e50;
-        }
-
-      
-        .description {
-            margin-bottom: 40px;
-            font-style: italic;
-            color: #7f8c8d;
-        }
-        
-    
-        .video-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            padding: 30px 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             margin-bottom: 50px;
-        }
-        .video-section h2 {
-             width: 100%;
-             margin-bottom: 20px;
-             color: #34495e;
-        }
-        .video-container {
-            width: 320px; 
-            height: 180px; 
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 2.5em;
+            color: var(--color-accent);
         }
 
-        
-        .footer-button {
-            margin: 40px 0;
+        /* -------------------------------------- */
+        /* BAGIAN APLIKASI (GLASSMORPHISM) - UKURAN DIPERBAIKI */
+        /* -------------------------------------- */
+        .tools-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Jarak antar kotak diperkecil */
+            padding: 20px;
+            border-radius: 15px;
+            
+            /* Glassmorphism Effect */
+            background: var(--color-glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
-        .tos-button {
-            padding: 12px 25px;
-            font-size: 1.1em;
+
+        .tool-card {
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            width: 90px; /* Ukuran kotak diperkecil (sebelumnya 120px) */
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid transparent;
             cursor: pointer;
-            background-color: #e74c3c; 
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
         }
-        .tos-button:hover {
-            background-color: #c0392b;
+
+        /* Efek Hover: Ikon Naik dan Highlight */
+        .tool-card:hover {
+            transform: translateY(-12px); /* Naik ke atas */
+            box-shadow: 0 8px 20px rgba(142, 45, 226, 0.6);
+            border-color: var(--color-accent);
         }
-        
-       
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6); 
+
+        .tool-card img {
+            width: 45px; /* Ukuran gambar diperkecil (sebelumnya 60px) */
+            height: 45px;
+            object-fit: contain;
+            margin-bottom: 8px;
         }
-        .modal-content {
-            background-color: #ffffff;
-            margin: 10% auto; 
-            padding: 30px;
-            border-radius: 10px;
-            width: 70%; 
-            max-width: 600px;
-            text-align: left;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 30px;
+
+        .tool-card p {
+            margin: 0;
+            font-size: 0.8em;
             font-weight: bold;
         }
-        .close-button:hover,
-        .close-button:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
+        
+        /* -------------------------------------- */
+        /* BAGIAN SHOWCASE SHORTS */
+        /* -------------------------------------- */
+        .shorts-grid {
+            display: grid;
+            /* Grid 3 kolom untuk desktop, responsif ke bawah */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 25px;
+            margin-top: 30px;
         }
 
-       
-        .bottom-section {
-            margin-top: 50px;
-            padding-top: 15px;
-            border-top: 1px solid #bdc3c7;
+        .short-item {
+            display: block;
+            text-decoration: none;
+            color: var(--color-text);
+            text-align: left;
+            transition: transform 0.3s ease;
         }
-        .small-thin-text {
-            font-size: 0.9em;
-            font-weight: 300; 
-            color: #95a5a6;
-            letter-spacing: 1px;
+
+        .short-item:hover {
+            transform: scale(1.03);
         }
+
+        .thumbnail {
+            /* Rasio aspek untuk YouTube Short (9:16) */
+            width: 100%;
+            padding-top: 177.77%; 
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background-color: #333; /* Warna fallback/thumbnail */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .thumbnail i {
+            /* Ikon Play Button */
+            font-size: 3em;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .short-item p {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 1em;
+            padding-left: 5px;
+        }
+
+        /* -------------------------------------- */
+        /* BAGIAN KONTAK MEDIA SOSIAL - UKURAN DIPERBAIKI */
+        /* -------------------------------------- */
+        .contact-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            font-size: 2em; /* Ukuran ikon media sosial diperkecil (sebelumnya 2.5em) */
+            color: var(--color-text);
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block; 
+            padding: 10px; 
+        }
+
+        /* Efek Hover: Ikon Highlight dan Naik */
+        .social-link:hover {
+            color: var(--color-accent);
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        /* Hapus custom font-size untuk X, menggunakan ukuran default .social-link */
+
     </style>
 </head>
 <body>
 
-    <header class="header-title">
-        <h1><b>MY EDITING PORTOFOLIO</b></h1>
+    <header class="container" style="text-align: center; padding-top: 80px;">
+        <h1>Alip</h1>
+        <p style="font-size: 1.2em; color: #aaa;">Creative Short Editor</p>
     </header>
 
-    <section class="description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <section class="container">
+        <h2>🛠️ Tools of the Trade</h2>
+        <div class="tools-container">
+            
+            <div class="tool-card">
+                <img src="placeholder_blender.png" alt="Blender Logo"> 
+                <p>Blender</p>
+            </div>
+
+            <div class="tool-card">
+                <img src="placeholder_davinci.png" alt="DaVinci Resolve Logo"> 
+                <p>DaVinci Resolve</p>
+            </div>
+
+            <div class="tool-card">
+                <img src="placeholder_unity.png" alt="Unity Logo">
+                <p>Unity</p>
+            </div>
+            
+        </div>
     </section>
 
-    <section class="video-section">
-        <h2>Karya Terbaru Saya</h2>
-        
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/v57bf1HlBOw" title="YouTube video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/ZWwvLOvsvBU" title="YouTube video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/U5Z99OCSicA" title="YouTube video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/JoGijWb0osY" title="YouTube video 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/k_8aB3IbJ6Y" title="YouTube video 5" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section class="container" style="padding-top: 100px;">
+        <h2>🎬 Featured Shorts</h2>
+        <div class="shorts-grid">
+            
+            <a href="https://www.youtube.com/watch?v=v57bf1HlBOw&list=TLGGTuQXkdY4cTAyNjExMjAyNQ" target="_blank" class="short-item">
+                <div class="thumbnail" style="background-image: url('placeholder_thumb_1.jpg');">
+                    <i class="far fa-play-circle"></i> 
+                </div>
+                <p>Ollie Is... (Title Placeholder)</p>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=ZWwvLOvsvBU&list=TLGGe2qbAP-CPg8yNjExMjAyNQ" target="_blank" class="short-item">
+                <div class="thumbnail" style="background-image: url('placeholder_thumb_2.jpg');">
+                    <i class="far fa-play-circle"></i>
+                </div>
+                <p>Henya... (Title Placeholder)</p>
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=U5Z99OCSicA&list=TLGGDhrqdsXpOCYyNjExMjAyNQ" target="_blank" class="short-item">
+                <div class="thumbnail" style="background-image: url('placeholder_thumb_3.jpg');">
+                    <i class="far fa-play-circle"></i>
+                </div>
+                <p>Michi... (Title Placeholder)</p>
+            </a>
+            
+            </div>
+    </section>
+
+
+    <section class="contact-section">
+        <h2>👋 Connect With Me</h2>
+        <div class="social-links">
+            
+            <a href="https://discord.gg/[Link-Discord-Kamu]" target="_blank" class="social-link" title="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            
+            <a href="https://instagram.com/[Username-IG-Kamu]" target="_blank" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://x.com/[Username-X-Kamu]" target="_blank" class="social-link" title="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+
+            <a href="mailto:[Email-Kamu-Di-Sini]" class="social-link" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+
         </div>
     </section>
 
-    <section class="footer-button">
-        <button class="tos-button" onclick="document.getElementById('tosModal').style.display='block'">Term of Service</button>
-    </section>
-
-    <div id="tosModal" class="modal">
-      <div class="modal-content">
-        <span class="close-button" onclick="document.getElementById('tosModal').style.display='none'">&times;</span>
-        <h2>Ketentuan Layanan (Term of Service)</h2>
-        <p><strong>Persetujuan Penggunaan Konten:</strong></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><strong>Hak Cipta:</strong></p>
-        <p>Nunc vel risus commodo, luctus risus id, eleifend tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus at ex in tortor volutpat auctor vel id purus. Sed eget tellus vel nisl convallis bibendum. Donec at purus eu odio finibus consectetur. Nulla facilisi. Proin id velit eu ipsum malesuada egestas.</p>
-      </div>
-    </div>
-
-    <footer class="bottom-section">
-        <p class="small-thin-text">enjoy my edit</p>
+    <footer style="text-align: center; padding: 20px; font-size: 0.8em; color: #666;">
+        &copy; 2025 Portofolio [Nama Kamu]. All Rights Reserved.
     </footer>
-
-    <script>
-       
-        var modal = document.getElementById('tosModal');
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 
 </body>
 </html>
